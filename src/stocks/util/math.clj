@@ -2,7 +2,7 @@
 
 (defn average-price
   "Returns average price"
-  [[totalStocks stocksPurchased actualAveragePrice purchasePrice]]
+  [totalStocks stocksPurchased actualAveragePrice purchasePrice]
   (/
     (+ (* totalStocks actualAveragePrice) (* stocksPurchased purchasePrice))
     (+ totalStocks stocksPurchased)))
@@ -12,3 +12,5 @@
   [value]
   (let [ratio (Math/pow 10 2)]
     (/ (Math/round (* value ratio)) ratio)))
+
+(def ZERO 0)

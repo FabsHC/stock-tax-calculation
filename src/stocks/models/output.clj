@@ -3,8 +3,10 @@
 
 (defrecord Output [tax])
 
+(defn new-operation-output [tax] (->Output tax))
+
 (defn new-capital-gain-output [gains]
   (let [tax (* gains 0.2)
         formatted-tax (math/round-two-decimals tax)]
-    (Output formatted-tax)
+    (new-operation-output formatted-tax)
     ))

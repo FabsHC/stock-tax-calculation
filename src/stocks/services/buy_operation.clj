@@ -10,7 +10,7 @@
     (let [
           updated-stocks-info (models/calculate-new-average-share-price stocks-info operation)
           updated-stocks-info (models/add-shares updated-stocks-info operation)]
-      [updated-stocks-info operation])))
+      updated-stocks-info)))
 
 (defn new-buy-operation []
   (->BuyOperationImpl))

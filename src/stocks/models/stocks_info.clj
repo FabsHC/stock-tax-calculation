@@ -1,4 +1,4 @@
-(ns stocks.models.operation
+(ns stocks.models.stocks-info
   (:require [stocks.util.math :as math]))
 
 (defrecord StocksInfo [average-price shares])
@@ -7,13 +7,13 @@
 
 (defn add-shares
   "Adds an amount X to the total number of shares"
-  [stocks-info quantity]
-  (assoc stocks-info :shares (+ (:shares stocks-info) quantity)))
+  [stocks-info operation]
+  (update stocks-info :shares + (:quantity operation)))
 
 (defn subtract-shares
   "Subtracts an amount X to the total number of shares"
-  [stocks-info quantity]
-  (let [total (- (:shares stocks-info) quantity)]
+  [stocks-info operation]
+  (let [total (- (:shares stocks-info) (:quantity operation))]
     (if (< total math/ZERO)
       (assoc stocks-info :shares math/ZERO)
       (assoc stocks-info :shares total)

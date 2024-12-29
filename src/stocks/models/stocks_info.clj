@@ -23,9 +23,10 @@
   "Calculate the new average price base in stocks information and the operation that is being executed"
   (assoc stocks-info
     :average-price
-    (math/average-price
-      (:shares stocks-info)
-      (:quantity operation)
-      (:average-price stocks-info)
-      (:unit-cost operation))
-    ))
+    (math/round-two-decimals
+      (math/average-price
+        (:shares stocks-info)
+        (:quantity operation)
+        (:average-price stocks-info)
+        (:unit-cost operation))
+      )))

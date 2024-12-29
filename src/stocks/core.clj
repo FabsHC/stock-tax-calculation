@@ -13,12 +13,12 @@
 
 (def operations
   [{:operation input/BUY_OPERATION, :unit-cost 10.00, :quantity 10000}
-   {:operation input/BUY_OPERATION, :unit-cost 20.00, :quantity 5000}
+   {:operation input/SELL_OPERATION, :unit-cost 20.00, :quantity 5000}
    {:operation input/SELL_OPERATION, :unit-cost 5.00, :quantity 5000}])
 
 (println "Input:\n" operations)
 (def result (tax/execute tx operations))
-(println "Output:\n" result)
+(println "\nOutput:\n" result)
 
 ;(def operations
 ;  [{:operation input/BUY_OPERATION, :unit-cost 10.00, :quantity 10000}

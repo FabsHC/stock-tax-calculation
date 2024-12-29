@@ -1,3 +1,0 @@
-{:deps {ring/ring-defaults {:mvn/version "0.3.3"}
-        compojure {:mvn/version "1.6.2"}
-        cheshire {:mvn/version "5.11.0"}}}

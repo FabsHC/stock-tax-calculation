@@ -1,6 +1,5 @@
 (ns stocks.services.sell-operation
-  (:require [stocks.models.input :as input]
-            [stocks.models.stocks-info :as stock]
+  (:require [stocks.models.stocks-info :as stock]
             [stocks.models.profit :as profit]
             [stocks.util.math :as math]))
 
@@ -10,8 +9,8 @@
 (defrecord SellOperationImpl []
   SellOperation
   (execute [_ stocks-info profit operation]
-    (let [unit-cost-total (input/get-total-cost operation (:unit-cost operation))
-          avg-price-total (input/get-total-cost operation (:average-price stocks-info))
+    (let [unit-cost-total (* (:quantity operation) (:unit-cost operation))
+          avg-price-total (* (:quantity operation) (:average-price stocks-info))
           updated-stocks-info (stock/subtract-shares stocks-info operation)]
       (cond
         (= (:unit-cost operation) (:average-price updated-stocks-info))

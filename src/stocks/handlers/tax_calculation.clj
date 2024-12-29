@@ -11,7 +11,7 @@
   (execute [this operations]))
 
 (defn get-sales-gains [profits operation]
-  (let [total-cost (input/get-total-cost operation (:unit-cost operation))]
+  (let [total-cost (* (:quantity operation) (:unit-cost operation))]
     (if (<= total-cost 20000)
       math/ZERO
       (:gains profits))))
@@ -19,31 +19,43 @@
 (defrecord TaxCalculationImpl [buy-operation sell-operation]
   TaxCalculation
   (execute [_ operations]
-    (let [stocks (stocks-info/new-stocks-info)
-          profits (profit/new-profit)]
+    (let [stocks (atom (stocks-info/new-stocks-info))
+          profits (atom (profit/new-profit))]
+      ;(println "------------------------------------------")
       (reduce
-        (fn [output-taxes operation]
+        (fn [taxes operation]
+          ;(println "Operation" operation)
           (let [operation-type (:operation operation)
                 tax (cond
                       (= operation-type input/BUY_OPERATION)
                       (do
-                        (let [updated-stocks (buy/execute buy-operation stocks operation)]
-                          (def stocks updated-stocks))
+                        (let [updated-stocks (buy/execute buy-operation @stocks operation)]
+                          (reset! stocks updated-stocks))
+                        ;(println "\nBuy operation, stocks" @stocks)
                         (output/new-capital-gain-output math/ZERO))
 
                       (= operation-type input/SELL_OPERATION)
                       (do
-                        (let [[updated-stocks updated-profit] (sell/execute sell-operation stocks profits operation)]
-                          (def stocks updated-stocks)
-                          (def profits updated-profit))
-                        (output/new-capital-gain-output (get-sales-gains profits operation)))
+                        (let [[updated-stocks updated-profit] (sell/execute sell-operation @stocks @profits operation)]
+                          (reset! stocks updated-stocks)
+                          (reset! profits updated-profit))
+                        ;(println "\nSell operation, stocks" @stocks)
+                        ;(println "\nSell operation, profits" @profits)
+                        (output/new-capital-gain-output (get-sales-gains @profits operation)))
 
                       :else
                       (throw (IllegalArgumentException. (str "Unknown operation: " operation-type))))]
-            (conj output-taxes tax)))
+            ;(println "\nTax" tax)
+            ;(println "------------------------------------------")
+            (conj taxes tax)
+          )
+        )
         []
-        operations)
-      )))
+        operations
+      )
+    )
+  )
+)
 
 
 (defn new-tax-calculation [buy-operation sell-operation]

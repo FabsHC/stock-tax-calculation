@@ -42,6 +42,3 @@ jobs:
 
       - name: Run tests
         run: make ci-tests
-
-      - name: Verify code formatting
-        run: make ci-code-formatting

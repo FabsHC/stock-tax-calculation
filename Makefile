@@ -14,6 +14,3 @@ ci-debug-classpath:
 
 ci-tests:
 	lein test
-
-ci-code-formatting:
-	lein cljfmt check

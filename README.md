@@ -1,4 +1,5 @@
 # stock-tax-calculation
+![WIP](https://img.shields.io/badge/W.I.P-Clojure.svg?logo=Clojure)
 ![Clojure](https://img.shields.io/badge/Clojure-%201.11.1-%23Clojure.svg?logo=Clojure&logoColor=Clojure)
 ![stock-tax-calculation](https://img.shields.io/badge/stock_tax_calculation-%200.0.1-Clojure.svg?logo=Clojure)
 ![Build & Tests](https://github.com/FabsHC/stock-tax-calculation/actions/workflows/clojure.yml/badge.svg)

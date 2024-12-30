@@ -37,6 +37,9 @@ jobs:
       - name: Install dependencies
         run: lein deps
 
+      - name: Debug classpath
+        run: lein classpath
+
       - name: Run tests
         run: lein test
 

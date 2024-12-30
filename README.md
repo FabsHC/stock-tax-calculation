@@ -1,5 +1,6 @@
 # stock-tax-calculation
-![Clojure](https://img.shields.io/badge/Clojure-%23Clojure.svg?style=for-the-badge&logo=Clojure&logoColor=Clojure)
+![Clojure](https://img.shields.io/badge/Clojure-%23Clojure.svg?logo=Clojure&logoColor=Clojure)
+![Build & Tests](https://github.com/FabsHC/stock-tax-calculation/actions/workflows/clojure.yml/badge.svg)
 
 FYI: The Golang version of this project: [capital-gain](https://github.com/FabsHC/capital-gain)
 

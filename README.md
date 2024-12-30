@@ -41,10 +41,22 @@ In the [CASES.md](doc/CASES.md) we are detailing these examples.
 ## How to run
 The application expects data in STDIN format and will return json in STDOUT format. So you can provide a JSON or a file containing several lines with each line having a JSON.
 Examples below:
-```bash
-echo '<input-json>' | clojure -M -m stocks.core
-```
-
+- Direct JSON input
+    ```bash
+    echo '[{"operation":"buy", "unit-cost":10.00, "quantity": 100}, {"operation":"sell", "unit-cost":15.00, "quantity": 50}, {"operation":"sell", "unit-cost":15.00, "quantity": 50}]' | clojure -M -m stocks.core
+    ```
+- Reading file
+    ```bash
+    cat doc/resources/case_1 | clj -M -m stocks.core 
+    ```
+- Docker direct input
+    ```bash
+    WIP 
+    ```
+- Docker reading file for input
+    ```bash
+    WIP 
+    ```
 ## How to run the tests
 WIP
 

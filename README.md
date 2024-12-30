@@ -43,11 +43,11 @@ The application expects data in STDIN format and will return json in STDOUT form
 Examples below:
 - Direct JSON input
     ```bash
-    echo '[{"operation":"buy", "unit-cost":10.00, "quantity": 100}, {"operation":"sell", "unit-cost":15.00, "quantity": 50}, {"operation":"sell", "unit-cost":15.00, "quantity": 50}]' | clojure -M -m stocks.core
+    make run INPUT='[{"operation":"buy", "unit-cost":10.00, "quantity": 100}, {"operation":"sell", "unit-cost":15.00, "quantity": 50}, {"operation":"sell", "unit-cost":15.00, "quantity": 50}]'
     ```
 - Reading file
     ```bash
-    cat doc/resources/case_1 | clj -M -m stocks.core 
+    make run-file FILE=doc/resources/case_1
     ```
 - Docker direct input
     ```bash

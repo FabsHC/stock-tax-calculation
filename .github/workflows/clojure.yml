@@ -18,7 +18,7 @@ jobs:
         uses: actions/setup-java@v3
         with:
           distribution: temurin
-          java-version: 17 # Substitua pela versão do JDK que seu projeto utiliza
+          java-version: 17
 
       - name: Install Leiningen
         run: |

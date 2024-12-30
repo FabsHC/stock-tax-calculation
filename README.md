@@ -2,4 +2,7 @@
 
 WIP Clojure project
 
-## Usage
+## How to run
+```bash
+echo '<input-json>' | clojure -M -m stocks.core
+```

@@ -31,11 +31,12 @@ In the [CASES.md](doc/CASES.md) we are detailing these examples.
 ## Project Organization
 ```
 ├── /src
-    ├── /stocks
+    └── /stocks
         ├── /models................: Model map functions
         ├── /services..............: Business logic functions
         ├── /util..................: Util functions 
         └── core.clj...............: Main application file
+└── /test..........................: Unit tests file
 ```
 
 ## How to run

@@ -1,4 +1,4 @@
-(ns stocks.handlers.tax-calculation
+(ns stocks.services.tax-calculation
   (:require [stocks.models.input :as input]
             [stocks.models.output :as output]
             [stocks.models.stocks-info :as stocks-info]

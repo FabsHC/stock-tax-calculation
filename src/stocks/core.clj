@@ -1,7 +1,7 @@
 (ns stocks.core
   (:require [clojure.data.json :as json]
             [clojure.java.io :as io]
-            [stocks.handlers.tax-calculation :as tax]
+            [stocks.services.tax-calculation :as tax]
             [stocks.services.buy-operation :as buy]
             [stocks.services.sell-operation :as sell]
             ))

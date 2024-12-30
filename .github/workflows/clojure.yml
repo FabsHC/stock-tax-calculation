@@ -35,13 +35,13 @@ jobs:
             ${{ runner.os }}-lein-
 
       - name: Install dependencies
-        run: lein deps
+        run: make ci-install-dependencies
 
       - name: Debug classpath
-        run: lein classpath
+        run: make ci-debug-classpath
 
       - name: Run tests
-        run: lein test
+        run: make ci-tests
 
-      - name: Verify code formatting (opcional)
-        run: lein cljfmt check
+      - name: Verify code formatting
+        run: make ci-code-formatting
